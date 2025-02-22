@@ -1,51 +1,55 @@
-
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Waves for Change</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .banner {
-      width: 100%;
-      text-align: center;
-      background-color: #f0f8ff;
-      padding: 20px 0;
-    }
-    .banner img {
-      max-width: 100%;
-      height: auto;
-    }
-    .section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    h1, h2 {
-      color: #2c3e50;
-    }
-    p {
-      line-height: 1.6;
-      color: #34495e;
-    }
-  </style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+<style>
+  #banner, #team {
+    height: 600px;
+  }
+
+  #drive {
+    padding: 20px;
+    margin: 10px;
+  }
+</style>
 <body>
-  <div class="banner">
-    <img src="static/banner.jpg" alt="Waves for Change" width="800">
-  </div>
+  <div class="container text-center">
+    <h1>Welcome to Waves for Change</h1>
+    <img src="static/banner.jpg" class="img-fluid" alt="Waves for Change banner" id="banner">
+    <h2 class="mt-3">About Us</h2>
+    <p>Lorem ipsum dolor sit amet, nam unum dicant nominavi ei, ludus maiorum elaboraret an his. Ei duo legere dolorem accommodare, et sit dico semper. Cum et copiosae adolescens constituto, usu idque saperet eleifend ei. In vis diam moderatius comprehensam. Ea sed elaboraret instructior complectitur. Eu eum option ullamcorper, et eum affert labore, pri inani mollis propriae eu.
 
-  <div class="section">
-    <h2>About Us</h2>
-    <p>Waves for Change is dedicated to making a positive impact through ocean-based therapy and mentorship programs. We work with communities to provide healing, growth, and development opportunities through the power of surfing and ocean engagement.</p>
-  </div>
+      Eos duis ponderum in, postea debitis prodesset nec ut, te quo aeterno erroribus intellegat. Te vim quod diceret dignissim. Eu ullum dicta blandit nec. Case putant eam ne. Id novum appetere vel, est eu omnesque sapientem definitionem. Ne sed putant postulant. Nec ea elit vocibus, pro cu impetus nonumes quaestio.
+      
+      Oblique complectitur quo an. Simul qualisque pri et. Ne aeterno principes intellegebat quo. Mea dicant dicunt euripidis an, mei scripta platonem ocurreret ei, quo an dico eruditi.
+      
+      Exerci corrumpit pro ex, an ridens salutatus definitionem mei, te assum choro platonem eam. Pri aliquam gloriatur adipiscing ea, quo eu purto atomorum interpretaris. Justo melius mea et, qui cu esse habeo nusquam. Alii invenire has ex. Nam id instructior definitionem. Qui et probo nihil impetus, id pro tamquam intellegam. Eos cu soluta impetus vulputate.
+      
+      Corpora propriae voluptua at sit, eum debitis insolens cotidieque eu. Sale qualisque scribentur ne usu, iuvaret interpretaris ei est, eu sonet recusabo per. Ea vis odio quando intellegebat, nisl persecuti id vix, ut eos quis oporteat. Eu qui consequat consetetur assueverit. Tempor altera deserunt te eos. Vis homero volumus torquatos ne. Autem salutatus ea mei, affert iudicabit an sit.</p>
 
-  <div class="section">
-    <h2>Welcome to the Team</h2>
-    <p>We're thrilled to have you join our community of change-makers. Our team consists of passionate individuals dedicated to creating meaningful change through surf therapy and youth development programs. Together, we're building stronger, more resilient communities.</p>
+    <h2 class="mt-3">Meet the founding team</h2>
+      <img src="static/FoundingTeam.jpg" class="img-fluid" alt="Waves for Change team" id="team">
+
+    <h3 class="mt-3">Our Upcoming drives</h3>
+    <div>
+      {% for drive in drives %}
+        {% if drive['active'] == True %}
+          <div class="d-flex align-items-center text-start border border-3 rounded border-success" id="drive">
+            <div class="flex-grow-1">{{ drive['destination'] }}</div>
+            <button type="button" class="btn btn-outline-success ms-3">Join</button>
+          </div>
+        {% else %}
+        <div class="d-flex align-items-center text-start border border-3 rounded border-danger" id="drive">
+          <div class="flex-grow-1">{{ drive['destination'] }}</div>
+          <button type="button" class="btn btn-outline-danger ms-3" disabled>Passed</button>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </body>
 </html>
