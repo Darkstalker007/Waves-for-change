@@ -1,4 +1,11 @@
 from flask import Flask,render_template
+from models import drive
+
+
+drive1=drive('Mamzar Beach',2,'10:00 AM',True)
+drive2=drive('Al Khan Beach',2.5,'11:00 AM',True)
+drive3=drive('Kite Beach',3,'12:00 PM',False)
+
 
 DRIVES=[
   {
