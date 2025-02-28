@@ -1,6 +1,6 @@
 import random
 
-class drive:
+class drives:
     id= None
     distination= None
     duration= None
@@ -14,5 +14,8 @@ class drive:
         self.time=time
         self.active=active
 
-    def __getattribute__(self, id):
-        return self.id
+    def getDestination(self):
+        return self.destination
+    
+    def getActive(self):
+        return self.active
