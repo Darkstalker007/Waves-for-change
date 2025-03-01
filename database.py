@@ -1,12 +1,21 @@
+from dotenv import load_dotenv # type: ignore
+import os
 from sqlalchemy import create_engine, text
 
-engine = create_engine('postgresql+psycopg2://postgres:XVGT4EKwTfC9L6Vw@db.dtxpydmjiucxcwzrjoau.supabase.co/postgres')
+
+load_dotenv("connection.env")
+
+DATABASE_URL = os.environ.get("DATABASE_URL")
+if not DATABASE_URL:
+    raise ValueError("DATABASE_URL environment variable not found. Check your connection.env file.")
+
+engine = create_engine(DATABASE_URL)
 
 
 def load_drives():
-  with engine.connect() as conn:
-    result = conn.execute(text("SELECT * FROM drives"))
-    drives = []
-    for row in result:
-      drives.append(dict(row._mapping))
-    return drives
+    with engine.connect() as conn:
+        result = conn.execute(text("SELECT * FROM drives"))
+        drives = []
+        for row in result:
+            drives.append(dict(row._mapping))
+        return drives
