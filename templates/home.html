@@ -45,14 +45,14 @@
     <h3 class="mt-3">Our Upcoming drives</h3>
     <div>
       {% for drive in drives %}
-        {% if drive.getActive() == True %}
+        {% if drive['active'] == True %}
           <div class="d-flex align-items-center text-start border border-3 rounded border-success" id="drive">
-            <div class="flex-grow-1">{{ drive.getDestination() }}</div>
+            <div class="flex-grow-1">{{ drive['destination'] }}</div>
             <button type="button" class="btn btn-outline-success ms-3">Join</button>
           </div>
         {% else %}
         <div class="d-flex align-items-center text-start border border-3 rounded border-danger" id="drive">
-          <div class="flex-grow-1">{{ drive.getDestination() }}</div>
+          <div class="flex-grow-1">{{ drive['destination'] }}</div>
           <button type="button" class="btn btn-outline-danger ms-3" disabled>Passed</button>
         </div>
         {% endif %}
