@@ -6,4 +6,8 @@ authors = ["Your Name <you@example.com>"]
 requires-python = ">=3.11"
 dependencies = [
     "flask>=3.1.0",
+    "gunicorn",
+    "sqlalchemy",
+    "python-dotenv",
+    "psycopg2-binary"
 ]
