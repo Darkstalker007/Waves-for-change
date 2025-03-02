@@ -5,9 +5,7 @@ from sqlalchemy.exc import OperationalError
 
 load_dotenv("connection.env")
 
-
-
-engine = create_engine("postgresql+psycopg2://postgres.dtxpydmjiucxcwzrjoau:XVGT4EKwTfC9L6Vw@aws-0-ap-south-1.pooler.supabase.com/postgres")
+engine = create_engine(os.getenv("DATABASE_URL"))
 
 def load_drives():
     try:
