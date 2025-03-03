@@ -16,48 +16,52 @@
     margin: 10px;
   }
 </style>
-<body background="static/banner.jpg" style="background-size:100% 100%;">
+<body background="static/banner.jpg" style="background: size 100% 100%;">
   {% include 'nav.html' %}
-  <div class="container text-center card mt-5 mb-5" style="opacity: 0.95;">
-    <h1 class="mt-3">About Us</h1>
-    <p>Waves for Change is a youth-led environmental initiative dedicated to tackling plastic pollution and promoting sustainability through community-driven action. Founded in June 2024, our project began with a simple yet powerful idea: transforming discarded plastic bottles into plant pots and using them to create positive change. What started as a series of small beach cleanups quickly grew into a movement, bringing together passionate volunteers to restore our coastlines while repurposing waste into something meaningful.</p>
-    <h4 class="mt-1">Our Mission</h1>
-    <p>At Waves for Change, we strive to create a cleaner, greener world by merging environmental conservation with social impact. Through regular beach cleanups, creative upcycling, and community engagement, we aim to reduce plastic waste, raise awareness, and support charitable causes.</p>
-    <h4 class="mt-1">Our Vision</h1> 
-    <p>We envision a future where sustainability is second nature—where waste is minimized, oceans are plastic-free, and communities unite to protect the environment. By inspiring action and fostering innovation, we hope to drive long-term change, one bottle, one beach, and one community at a time.</p>
+  
+  <div class="content">
+    <div class="container text-center card mt-5 mb-5" style="opacity: 0.95;">
+      <h1 class="mt-3">About Us</h1>
+      <p>Waves for Change is a youth-led environmental initiative dedicated to tackling plastic pollution and promoting sustainability through community-driven action. Founded in June 2024, our project began with a simple yet powerful idea: transforming discarded plastic bottles into plant pots and using them to create positive change. What started as a series of small beach cleanups quickly grew into a movement, bringing together passionate volunteers to restore our coastlines while repurposing waste into something meaningful.</p>
+      <h4 class="mt-1">Our Mission</h1>
+      <p>At Waves for Change, we strive to create a cleaner, greener world by merging environmental conservation with social impact. Through regular beach cleanups, creative upcycling, and community engagement, we aim to reduce plastic waste, raise awareness, and support charitable causes.</p>
+      <h4 class="mt-1">Our Vision</h1> 
+      <p>We envision a future where sustainability is second nature—where waste is minimized, oceans are plastic-free, and communities unite to protect the environment. By inspiring action and fostering innovation, we hope to drive long-term change, one bottle, one beach, and one community at a time.</p>
 
-    <p class="fw-semibold fs-5">Join us in making waves for a better tomorrow</p>
-      
-    <h2 class="mt-3 mb-3 ">Meet the founding team</h2>
-    <div class="row align-items-center">
-      <div class="col-6 text-start border-end border-2">
-        <p class="lead"> Satvik Singh : Founder </p>
-        <p class="lead"> Palash Jhabkh : Senior Coordinator </p>
-        <p class="lead"> Rishab Agarwal : Resource Manager </p>
-        <p class="lead"> Lakshya Punjabi : Recruitment Specialist </p>
-      </div>
-      <div class="col-6">
-      <img src="static/FoundingTeam.jpg" class="img-fluid" alt="Waves for Change team" id="team" style="height: 320px; width: 95%;">
-      </div>
-      
-      
-
-    <h3 class="mt-3">Our Upcoming drives</h3>
-    <div>
-      {% for drive in drives %}
-        {% if drive['active'] == True %}
-          <div class="d-flex align-items-center text-start border border-3 rounded border-success" id="drive">
-            <div class="flex-grow-1">{{ drive['destination'] }}</div>
-            <button type="button" class="btn btn-outline-success ms-3">Join</button>
-          </div>
-        {% else %}
-        <div class="d-flex align-items-center text-start border border-3 rounded border-danger" id="drive">
-          <div class="flex-grow-1">{{ drive['destination'] }}</div>
-          <button type="button" class="btn btn-outline-danger ms-3" disabled>Passed</button>
+      <p class="fw-semibold fs-5">Join us in making waves for a better tomorrow</p>
+        
+      <h2 class="mt-3 mb-3 ">Meet the founding team</h2>
+      <div class="row align-items-center">
+        <div class="col-6 text-start border-end border-2">
+          <p class="lead"> Satvik Singh : Founder </p>
+          <p class="lead"> Palash Jhabkh : Senior Coordinator </p>
+          <p class="lead"> Rishab Agarwal : Resource Manager </p>
+          <p class="lead"> Lakshya Punjabi : Recruitment Specialist </p>
         </div>
-        {% endif %}
-      {% endfor %}
+        <div class="col-6">
+        <img src="static/FoundingTeam.jpg" class="img-fluid" alt="Waves for Change team" id="team" style="height: 320px; width: 95%;">
+        </div>
+        
+        
+
+      <h3 class="mt-3">Our Upcoming drives</h3>
+      <div>
+        {% for drive in drives %}
+          {% if drive['active'] == True %}
+            <div class="d-flex align-items-center text-start border border-3 rounded border-success" id="drive">
+              <div class="flex-grow-1">{{ drive['destination'] }}</div>
+              <button type="button" class="btn btn-outline-success ms-3">Join</button>
+            </div>
+          {% else %}
+          <div class="d-flex align-items-center text-start border border-3 rounded border-danger" id="drive">
+            <div class="flex-grow-1">{{ drive['destination'] }}</div>
+            <button type="button" class="btn btn-outline-danger ms-3" disabled>Passed</button>
+          </div>
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
   </div>
+  {% include 'footer.html' %}
 </body>
 </html>
