@@ -18,3 +18,9 @@ def load_drives():
     except OperationalError as e:
         print(f"Error connecting to the database: {e}")
         return []
+    
+def load_drive(drive_id):
+    with engine.connect() as conn:
+        result = conn.execute(text("SELECT * FROM drives WHERE drive_id=:drive_id"), {"drive_id": drive_id})
+        row = result.first()  # retrieve the first row
+        return dict(row._mapping) if row else {}
